@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Image } from "react-native";
 import { Link } from "expo-router";
-import ThemedView from "../components/ThemedView";
-import ThemedLogo from "../components/ThemedLogo";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 import Spacer from "../components/Spacer";
+import ThemedLogo from "../components/ThemedLogo";
 import ThemedText from "../components/ThemedText";
+import ThemedView from "../components/ThemedView";
+import { colors } from "../constants/colors";
 
 const Index = () => {
   return (
@@ -37,11 +37,14 @@ const Index = () => {
           flexDirection: "row",
         }}
       >
-        <Link href={"/about"} style={styles.card}>
-          <ThemedText>about page</ThemedText>
+        <Link href="/Register" style={styles.card}>
+          <ThemedText>create account</ThemedText>
         </Link>
-        <Link href={"/contact"} style={styles.card}>
-          <ThemedText>contact page</ThemedText>
+        <Link href="/Login" style={styles.card}>
+          <ThemedText>Login now</ThemedText>
+        </Link>
+        <Link href="/Profile" style={styles.card}>
+          <ThemedText>profile</ThemedText>
         </Link>
       </View>
     </ThemedView>
@@ -77,6 +80,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     boxShadow: "4px 4px 4px rgba(0,0,0,0.1)",
     borderBottomWidth: 2,
-    borderBottomColor: "red",
+    borderBottomColor:colors.primary,
   },
 });

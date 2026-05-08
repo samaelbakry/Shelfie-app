@@ -10,7 +10,7 @@ export const colors = {
     uiBackground: "#6B7280",
     border: "#E5E7EB",
     icon: "#6B7280",
-    iconFocus: "#111827",
+    iconFocus: "#4F46E5",
     error: "#EF4444",
     success: "#10B981",
   },
