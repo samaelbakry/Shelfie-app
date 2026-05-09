@@ -4,10 +4,10 @@ import ThemedText from "../../components/ThemedText";
 import ThemedView from "../../components/ThemedView";
 import Spacer from "../../components/Spacer";
 
-const Create = () => {
+const create = () => {
   return (
     <>
-      <ThemedView style={styles.container}>
+      <ThemedView style={styles.container} safe={true}>
         <Spacer marginValue={8} />
         <ThemedText style={styles.heroTitle} title={true}>
           Prefect time to create is now !
@@ -17,7 +17,7 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default create;
 
 const styles = StyleSheet.create({
   container: {

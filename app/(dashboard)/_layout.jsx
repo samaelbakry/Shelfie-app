@@ -1,11 +1,10 @@
+import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { useColorScheme } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../../constants/colors";
 
 const DashboardLayout = () => {
   const colorScheme = useColorScheme();
-
   const theme = colors[colorScheme] ?? colors.light;
 
   return (
@@ -33,11 +32,11 @@ const DashboardLayout = () => {
         options={{
           title: "Profile",
 
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused, size }) => (
             <Ionicons
               name={focused ? "person" : "person-outline"}
-              size={size}
-              color={color}
+              size={size ?? 24}
+              color={focused ?  theme.iconFocus :  theme.icon}
             />
           ),
         }}
@@ -48,11 +47,11 @@ const DashboardLayout = () => {
         options={{
           title: "Create",
 
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused, size }) => (
             <Ionicons
               name={focused ? "add-circle" : "add-circle-outline"}
-              size={size}
-              color={color}
+              size={size ?? 24}
+              color={focused ?  theme.iconFocus :  theme.icon}
             />
           ),
         }}
@@ -63,11 +62,11 @@ const DashboardLayout = () => {
         options={{
           title: "Books",
 
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused, size }) => (
             <Ionicons
               name={focused ? "book" : "book-outline"}
-              size={size}
-              color={color}
+              size={size ?? 24}
+              color={focused ?  theme.iconFocus :  theme.icon}
             />
           ),
         }}

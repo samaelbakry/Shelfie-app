@@ -43,7 +43,7 @@ const Index = () => {
         <Link href="/Login" style={styles.card}>
           <ThemedText>Login now</ThemedText>
         </Link>
-        <Link href="/Profile" style={styles.card}>
+        <Link href="/profile" style={styles.card}>
           <ThemedText>profile</ThemedText>
         </Link>
       </View>

@@ -4,10 +4,10 @@ import ThemedText from "../../components/ThemedText";
 import ThemedView from "../../components/ThemedView";
 import Spacer from "../../components/Spacer";
 
-const Profile = () => {
+const profile = () => {
   return (
     <>
-      <ThemedView style={styles.container}>
+      <ThemedView style={styles.container} safe={true}>
         <Spacer marginValue={8} />
         <ThemedText style={styles.heroTitle} title={true}>
           your email
@@ -21,7 +21,7 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default profile;
 
 const styles = StyleSheet.create({
   container: {

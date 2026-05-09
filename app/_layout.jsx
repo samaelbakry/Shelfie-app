@@ -1,24 +1,16 @@
-import { StyleSheet, Text, useColorScheme, View } from 'react-native'
-import React from 'react'
 import { Stack } from 'expo-router'
-import { colors } from '../constants/colors'
 import { StatusBar } from 'expo-status-bar'
-import { useFonts } from 'expo-font'
-import { Ionicons } from '@expo/vector-icons'
+import React from 'react'
+import { StyleSheet, Text, useColorScheme, View } from 'react-native'
+import { colors } from '../constants/colors'
 
 const RootLayout = () => {
   const colorScheme = useColorScheme()
   const theme = colors[colorScheme] ?? colors.light
-  const [loaded] = useFonts({
-    ...Ionicons.font
-  })
-   if (!loaded) {
-    return null;
-  }
-
+ 
   return (
    <>
-   <StatusBar value="auto" />
+   <StatusBar style="auto" />
     <View style={{flex:1}}>
         <Stack screenOptions={{headerStyle:{backgroundColor:theme.navBackground }, headerTintColor:theme.title}}>
             <Stack.Screen name='(auth)' options={{headerShown:false}} />

@@ -1,34 +1,58 @@
 import { Link } from "expo-router";
-import React from "react";
-import { StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
 import Spacer from "../../components/Spacer";
 import ThemedButton from "../../components/ThemedButton";
 import ThemedText from "../../components/ThemedText";
 import ThemedView from "../../components/ThemedView";
+import ThemedInput from "../../components/ThemedInput";
 
 const Login = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const handleSubmit =()=>{
     console.log("submittt from login");
   }
   return (
     <>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <ThemedView
         style={styles.container}
+        safe={true}
       >
         <ThemedText style={styles.heroTitle} title={true}>
           Login to your account
         </ThemedText>
+          <Spacer marginValue={8}/>
+
+          <ThemedInput placeholder="Drop your Email" 
+          style={{ width: "90%", marginBottom:20 }}
+          keyboardType="email-address"
+          onChangeText={setEmail}
+          value={email}
+           />
+          <ThemedInput placeholder="Drop your Password" 
+          style={{ width: "90%", marginBottom:20 }}
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry
+           />
+
           <Spacer marginValue={5}/>
+
         <ThemedButton onPress={handleSubmit}>
           <Text style={{color:"#eee"}}>
             Login
           </Text>
         </ThemedButton>
+
         <Spacer marginValue={20}/>
+
         <Link href="/Register" style={{fontWeight:"bold"}}>
           <ThemedText>Don't have an account ? Register</ThemedText>
         </Link>
       </ThemedView>
+      </TouchableWithoutFeedback>
     </>
   );
 };
@@ -42,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   heroTitle: {
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: "800",
     textAlign: "center",
     marginBottom: 12,
