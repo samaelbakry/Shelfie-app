@@ -1,14 +1,21 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import ThemedText from "../../components/ThemedText";
 import ThemedView from "../../components/ThemedView";
 import Spacer from "../../components/Spacer";
+import { useUser } from "../../hooks/useUser";
+import ThemedButton from "../../components/ThemedButton";
 
-const profile = () => {
+const Profile = () => {
+  const { logout , user }= useUser()
+
   return (
     <>
       <ThemedView style={styles.container} safe={true}>
         <Spacer marginValue={8} />
+        <ThemedText>
+          {user.email }
+        </ThemedText>
         <ThemedText style={styles.heroTitle} title={true}>
           your email
         </ThemedText>
@@ -16,12 +23,18 @@ const profile = () => {
         <ThemedText style={styles.heroTitle} title={true}>
           Prefect time to start is now !
         </ThemedText>
+        <Spacer marginValue={8} />
+        <ThemedButton onPress={logout}>
+          <Text style={{color:"#fefefe", fontWeight:"bold"}}>
+            Logout
+          </Text>
+        </ThemedButton>
       </ThemedView>
     </>
   );
 };
 
-export default profile;
+export default Profile;
 
 const styles = StyleSheet.create({
   container: {

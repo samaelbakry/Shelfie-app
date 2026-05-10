@@ -1,24 +1,34 @@
 import { Link } from "expo-router";
 import React, { useState } from "react";
-import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
+import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import Spacer from "../../components/Spacer";
 import ThemedButton from "../../components/ThemedButton";
 import ThemedText from "../../components/ThemedText";
 import ThemedView from "../../components/ThemedView";
 import ThemedInput from "../../components/ThemedInput";
+import { useUser } from "../../hooks/useUser";
+import ThemedAlert from "../../components/ThemedAlert";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = () => {
-    console.log("submittt from register");
-  };
+  const [error, setError] = useState("");
+  const { register } = useUser()
 
+  const handleSubmit = async ()=> {
+   try {
+    await register(email,password)
+     console.log("submit from register");
+   } catch (error) {
+    setError(error.message)
+   }
+  };
   return (
-    <>
+  <>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <ThemedView style={styles.container}>
-        <ThemedText style={styles.heroTitle} title={true}>
+      <View style={{ flex: 1 }}>
+        <ThemedView style={styles.container}>
+          <ThemedText style={styles.heroTitle} title={true}>
           Create your account immediately
         </ThemedText>
         <Spacer marginValue={8} />
@@ -46,9 +56,18 @@ const Register = () => {
           <ThemedText>Already have an account ? Login </ThemedText>
         </Link>
       </ThemedView>
-      </TouchableWithoutFeedback>
-    </>
-  );
+      </View>
+    </TouchableWithoutFeedback>
+
+    {error && (
+      <ThemedAlert
+        visible={true}
+        onCancel={() => setError("")}
+        errorMsg={error}
+      />
+    )}
+  </>
+);
 };
 
 export default Register;
