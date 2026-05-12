@@ -5,7 +5,7 @@ import { ID } from "react-native-appwrite";
 export const UserContext = createContext();
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
   const [authChecked, setAuthChecked] = useState(false)
 
   async function login(email, pass) {
@@ -28,7 +28,7 @@ export function UserProvider({ children }) {
   async function logout() {
     try {
       await account.deleteSession("current");
-      setUser("");
+      setUser(null);
       console.log("deleted!");
     } catch (error) {
       throw Error(error.message);
@@ -40,8 +40,8 @@ export function UserProvider({ children }) {
         const response = await account.get();
       setUser(response)
     } catch (error) {
+      setUser(null)
         console.log(error);
-        
     }finally{
         setAuthChecked(true)
     }

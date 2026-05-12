@@ -1,15 +1,22 @@
 import { Link } from "expo-router";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Spacer from "../components/Spacer";
 import ThemedLogo from "../components/ThemedLogo";
 import ThemedText from "../components/ThemedText";
 import ThemedView from "../components/ThemedView";
 import { colors } from "../constants/colors";
+import { useUser } from "../hooks/useUser";
 
 const Index = () => {
+  const {user}=useUser()
   return (
     <ThemedView style={styles.container}>
+      {user && <>
+      <Text style={{color:"red" , textAlign:"center" , fontWeight:"bold"}}>
+        Logged in
+      </Text></>}
+      <Spacer marginValue={8} />
       <ThemedLogo
         style={{
           width: 300,

@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import Spacer from "../../components/Spacer";
@@ -14,6 +14,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { register } = useUser()
+  const router = useRouter()
 
   const handleSubmit = async ()=> {
    try {
@@ -22,6 +23,8 @@ const Register = () => {
    } catch (error) {
     setError(error.message)
    }
+   router.replace("/")
+
   };
   return (
   <>
