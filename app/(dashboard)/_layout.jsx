@@ -43,8 +43,7 @@ const DashboardLayout = () => {
           ),
         }}
       />
-
-      <Tabs.Screen
+       <Tabs.Screen
         name="create"
         options={{
           title: "Create",
@@ -58,22 +57,24 @@ const DashboardLayout = () => {
           ),
         }}
       />
+        <Tabs.Screen
+          name="books"
+          options={{
+            title: "Books",
+  
+            tabBarIcon: ({ focused, size }) => (
+              <Ionicons
+                name={focused ? "book" : "book-outline"}
+                size={size ?? 24}
+                color={focused ?  theme.iconFocus :  theme.icon}
+              />
+            ),
+          }}
+        />
+       
+      </Tabs>
+      
 
-      <Tabs.Screen
-        name="books"
-        options={{
-          title: "Books",
-
-          tabBarIcon: ({ focused, size }) => (
-            <Ionicons
-              name={focused ? "book" : "book-outline"}
-              size={size ?? 24}
-              color={focused ?  theme.iconFocus :  theme.icon}
-            />
-          ),
-        }}
-      />
-    </Tabs>
     </UsersOnly>
   );
 };

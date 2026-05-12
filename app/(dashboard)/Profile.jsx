@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   heroTitle: {
-    fontSize: 30,
+    fontSize: 15,
     fontWeight: "800",
     textAlign: "center",
     marginBottom: 12,

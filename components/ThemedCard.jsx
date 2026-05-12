@@ -8,7 +8,7 @@ const ThemedCard = ({style , ...props}) => {
   
     return (
       <View
-        style={[{ backgroundColor: theme.uiBackground }, styles.card , style]}
+        style={[{ backgroundColor: theme.navBackground }, styles.card , style]}
         {...props}
       />
     );

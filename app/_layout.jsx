@@ -4,6 +4,7 @@ import React from "react";
 import { Text, useColorScheme, View } from "react-native";
 import { colors } from "../constants/colors";
 import { UserProvider } from "../contexts/UserContext";
+import { BooksProvider } from "../contexts/BooksContext";
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
@@ -11,6 +12,7 @@ const RootLayout = () => {
 
   return (
     <UserProvider>
+      <BooksProvider>
       <StatusBar style="auto" />
       <View style={{ flex: 1 }}>
         <Stack
@@ -36,6 +38,7 @@ const RootLayout = () => {
           @2026 all copyrights reserved
         </Text>
       </View>
+      </BooksProvider>
     </UserProvider>
   );
 };
