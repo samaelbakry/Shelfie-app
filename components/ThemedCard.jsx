@@ -22,3 +22,5 @@ card:{
     padding:20
 }
 })
+
+
